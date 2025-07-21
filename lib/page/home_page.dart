@@ -66,7 +66,11 @@ class HomePage extends StatelessWidget {
               children: [
                 DestinationGrid(
                   onTap: () {
-                    Navigator.pushNamed(context, '/destination', arguments: "beach");
+                    Navigator.pushNamed(
+                      context,
+                      '/destination',
+                      arguments: "beach",
+                    );
                   },
                   image:
                       "https://www.azwisata.com/wp-content/uploads/2018/12/Pantai-Nongsa.jpg",
@@ -74,7 +78,11 @@ class HomePage extends StatelessWidget {
                 ),
                 DestinationGrid(
                   onTap: () {
-                    Navigator.pushNamed(context, '/destination', arguments: "mall");
+                    Navigator.pushNamed(
+                      context,
+                      '/destination',
+                      arguments: "mall",
+                    );
                   },
                   image: "https://cms.grandbatam.com/images/slider1.png",
                   title: "MALL",
