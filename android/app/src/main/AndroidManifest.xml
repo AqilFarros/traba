@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="welcome_to_batam"
+        android:label="traba"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

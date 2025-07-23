@@ -1,16 +1,30 @@
-part of '../page.dart';
+part of 'page.dart';
 
-class SignInPage extends StatefulWidget {
-  const SignInPage({super.key});
+class WelcomePage extends StatefulWidget {
+  const WelcomePage({super.key});
 
   @override
-  State<SignInPage> createState() => _SignInPageState();
+  State<WelcomePage> createState() => _WelcomePageState();
 }
 
-class _SignInPageState extends State<SignInPage> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+class _WelcomePageState extends State<WelcomePage> {
+  final nameController = TextEditingController();
   final formKey = GlobalKey<FormState>();
+
+  void _checkName() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    final name = prefs.getString('name');
+
+    if (name != null) {
+      Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
+    }
+  }
+
+  @override
+  void initState() {
+    _checkName();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,43 +48,27 @@ class _SignInPageState extends State<SignInPage> {
               ),
             ),
             Text(
-              "Sign in to continue!",
+              "Input your name to continue!",
               style: medium.copyWith(fontSize: heading2),
             ),
             const SizedBox(height: defaultMargin * 2),
             InputField(
-              controller: emailController,
-              hintText: "Email",
-              validator: validateEmail,
-            ),
-            const SizedBox(height: defaultMargin),
-            InputField(
-              controller: passwordController,
-              hintText: "Password",
-              validator: validatePassword,
-              obscureText: true,
+              controller: nameController,
+              hintText: "Name",
+              validator: requiredField,
             ),
             const SizedBox(height: defaultMargin),
             Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                GestureDetector(
-                  onTap: () {
-                    Navigator.pushNamed(context, '/sign-up');
-                  },
-                  child: Text(
-                    "Haven't has an account",
-                    style: bold.copyWith(
-                      color: mainColor,
-                      fontSize: description,
-                    ),
-                  ),
-                ),
-                const SizedBox(width: defaultMargin),
                 PrimaryButton(
-                  text: "Sign in",
+                  text: "Submit",
                   onPressed: () async {
                     if (formKey.currentState!.validate()) {
+                      final SharedPreferences prefs =
+                          await SharedPreferences.getInstance();
+                      await prefs.setString('name', nameController.text);
+
                       Navigator.pushNamedAndRemoveUntil(
                         context,
                         '/home',

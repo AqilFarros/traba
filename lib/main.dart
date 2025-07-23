@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:welcome_to_batam/route_generator.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:traba/route_generator.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(ProviderScope(child: const MyApp()));
 }
 
 class MyApp extends StatelessWidget {

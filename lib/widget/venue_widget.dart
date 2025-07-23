@@ -1,7 +1,7 @@
 part of 'widget.dart';
 
-class DestinationGrid extends StatelessWidget {
-  const DestinationGrid({super.key, required this.image, required this.title, this.onTap});
+class VenueWidget extends StatelessWidget {
+  const VenueWidget({super.key, required this.image, required this.title, this.onTap});
 
   final String image;
   final String title;

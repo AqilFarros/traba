@@ -1,26 +1,26 @@
 part of 'shared.dart';
 
-TextStyle light = GoogleFonts.raleway(
+TextStyle light = GoogleFonts.poppins(
   fontWeight: FontWeight.w300,
   color: whiteColor,
 );
-TextStyle regular = GoogleFonts.raleway(
+TextStyle regular = GoogleFonts.poppins(
   fontWeight: FontWeight.w400,
   color: whiteColor,
 );
-TextStyle medium = GoogleFonts.raleway(
+TextStyle medium = GoogleFonts.poppins(
   fontWeight: FontWeight.w500,
   color: whiteColor,
 );
-TextStyle semiBold = GoogleFonts.raleway(
+TextStyle semiBold = GoogleFonts.poppins(
   fontWeight: FontWeight.w600,
   color: whiteColor,
 );
-TextStyle bold = GoogleFonts.raleway(
+TextStyle bold = GoogleFonts.poppins(
   fontWeight: FontWeight.w700,
   color: whiteColor,
 );
-TextStyle extraBold = GoogleFonts.raleway(
+TextStyle extraBold = GoogleFonts.poppins(
   fontWeight: FontWeight.w800,
   color: whiteColor,
 );
